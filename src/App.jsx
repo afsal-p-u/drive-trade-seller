@@ -1,10 +1,19 @@
-import SignIn from './pages/SignIn.jsx';
+import { Route, Routes } from "react-router-dom";
+import { ChangePassword, Dashboard, ForgotPassword1, ForgotPassword2, SignIn, SignUp } from "./pages";
+import MainLayout from "./layout/MainLayout";
 
 function App() {
   return (
-    <>
-      <SignIn />
-    </>
+    <Routes>
+      <Route path='/' element={<MainLayout />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Route>
+      <Route path='/sign-in' element={<SignIn />} />
+      <Route path='/sign-up' element={<SignUp />} />
+      <Route path='/forgot-password1' element={<ForgotPassword1 />} />
+      <Route path='/forgot-password2' element={<ForgotPassword2 />} />
+      <Route path='/change-password' element={<ChangePassword />} />
+    </Routes>
   );
 }
 
