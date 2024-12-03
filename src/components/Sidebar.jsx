@@ -3,24 +3,36 @@ import { IoCarSportOutline } from "react-icons/io5";
 import { BiMessageSquareDetail } from "react-icons/bi";
 import { IoSettingsOutline } from "react-icons/io5";
 import { PiSignOut } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { useState } from "react";
 
 const Sidebar = () => {
+    const [selected, setSeleted] = useState('');
+    const path = useLocation()
+    console.log(path.pathname)
+
     return (
         <div className="w-[300px] h-[90vh] basis-1/5 py-5 pl-10 flex flex-col gap-5 pr-2 shadow-sm">
             <Link to="/">
-                <div className="px-5 py-2 bg-blue-500 rounded-md cursor-pointer flex items-center gap-3">
-                    <MdAutoGraph className="text-white" />
-                    <p className="text-sm font-medium text-white">Dashboard</p>
+                <div className={`px-5 py-2 rounded-md cursor-pointer flex items-center gap-3
+                ${path?.pathname == "/" && 'bg-blue-500'}`}>
+                    <MdAutoGraph className={`${path?.pathname == "/" ? 'text-white' : 'text-black'}`} />
+                    <p className={`text-sm font-medium
+                    ${path?.pathname == "/" ? 'text-white' : 'text-black'}`}
+                    >Dashboard</p>
                 </div>
             </Link>
             <Link to="/vehicles">
-                <div className="px-5 py-2 rounded-md cursor-pointer flex items-center gap-3">
-                    <IoCarSportOutline className="text-gray-700" />
-                    <p className="text-sm font-medium text-gray-700">Vehicle</p>
+                <div className={`px-5 py-2 rounded-md cursor-pointer flex items-center gap-3
+                ${path?.pathname == "/vehicles" && 'bg-blue-500'}`}>
+                    <IoCarSportOutline className={`text-gray-700
+                    ${path?.pathname == "/vehicles" ? 'text-white' : 'text-black'}`} />
+                    <p className={`text-sm font-medium text-gray-700
+                    ${path?.pathname == "/vehicles" ? 'text-white' : 'text-black'}`
+                    }>Vehicle</p>
                 </div>
             </Link> 
-            <Link to="/messages">
+            {/* <Link to="/messages">
                 <div className="px-5 py-2 rounded-md cursor-pointer flex items-center gap-3">
                     <BiMessageSquareDetail className="text-gray-700" />
                     <p className="text-sm font-medium text-gray-700">Messages</p>
@@ -35,7 +47,7 @@ const Sidebar = () => {
             <div className="px-5 py-2 rounded-md cursor-pointer flex items-center gap-3">
                 <PiSignOut className="text-gray-700" />
                 <p className="text-sm font-medium text-gray-700">SignOut</p>
-            </div>
+            </div> */}
         </div>
     )
 }

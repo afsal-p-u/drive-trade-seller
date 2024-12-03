@@ -1,10 +1,11 @@
 import { CiFilter } from "react-icons/ci";
+import { vehicleTableHead, vehicleTableItemsTemp } from "../utils/vehicles";
 
 const Vehicles = () => {
     return (
         <div className="basis-4/5 bg-slate-100 w-full min-h-[90vh] text-black pl-5 pr-14 py-5">
             <div className="flex items-center justify-between pb-5 border-b-[1px]">
-                <h2 className="font-medium">Vehicles</h2> 
+                <h2 className="font-medium">Vehicles</h2>
 
                 <div className="flex items-center gap-5">
                     <div className="flex gap-2 items-center px-2 py-1 border-[1px] border-blue-500 rounded-md
@@ -20,8 +21,43 @@ const Vehicles = () => {
                 </div>
             </div>
 
-            <div className="">
-                
+            <div className="w-full mt-5">
+                <div className="py-2 px-5 text-sm mt-2 flex gap-2">
+                    {vehicleTableHead?.map((item, i) => (
+                        <div className="w-[100px]" key={i}>
+                            <p>{item?.name}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {vehicleTableItemsTemp?.map((item, i) => (
+                    <div className="px-5 py-3 text-sm flex gap-2 bg-white rounded-md mt-2" key={i}>
+                        {/* <div className="w-[100px]">
+                                <img src="" alt="" />
+                            </div> */}
+                        <div className="w-[100px]">
+                            <p>{item?.model}</p>
+                        </div>
+                        <div className="w-[100px]">
+                            <p>{item?.year}</p>
+                        </div>
+                        <div className="w-[100px]">
+                            <p>{item?.transmission}</p>
+                        </div>
+                        <div className="w-[100px]">
+                            <p>{item?.fuel}</p>
+                        </div>
+                        <div className="w-[100px]">
+                            <p>{item?.milage}</p>
+                        </div>
+                        <div className="w-[100px]">
+                            <p>{item?.color}</p>
+                        </div>
+                        <div className="w-[100px]">
+                        
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     )
