@@ -9,7 +9,7 @@ const Navbar = () => {
 
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded-md">
-          <CiSearch className="cursor-pointer" />
+          <CiSearch className="cursor-pointer text-blue-500" />
           <input
             type="search"
             name=""
