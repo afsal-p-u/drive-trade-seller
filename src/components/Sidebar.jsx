@@ -4,12 +4,9 @@ import { BiMessageSquareDetail } from "react-icons/bi";
 import { IoSettingsOutline } from "react-icons/io5";
 import { PiSignOut } from "react-icons/pi";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { useState } from "react";
 
 const Sidebar = () => {
-    const [selected, setSeleted] = useState('');
     const path = useLocation()
-    console.log(path.pathname)
 
     return (
         <div className="w-[300px] h-[90vh] basis-1/5 py-5 pl-10 flex flex-col gap-5 pr-2 shadow-sm">
@@ -24,11 +21,16 @@ const Sidebar = () => {
             </Link>
             <Link to="/vehicles">
                 <div className={`px-5 py-2 rounded-md cursor-pointer flex items-center gap-3
-                ${path?.pathname == "/vehicles" && 'bg-blue-500'}`}>
+                    ${path?.pathname == "/vehicles" ? 'bg-blue-500' :
+                    path?.pathname == "/vehicle" ? 'bg-blue-500' : ''}`}
+                >
                     <IoCarSportOutline className={`text-gray-700
-                    ${path?.pathname == "/vehicles" ? 'text-white' : 'text-black'}`} />
+                        ${path?.pathname == "/vehicles" ? 'text-white' : 
+                        path?.pathname == "/vehicle" ? 'text-white' : 'text-black'}`} 
+                    />
                     <p className={`text-sm font-medium text-gray-700
-                    ${path?.pathname == "/vehicles" ? 'text-white' : 'text-black'}`
+                        ${path?.pathname == "/vehicles" ? 'text-white' : 
+                        path?.pathname == "/vehicle" ? 'text-white' : 'text-black'}`
                     }>Vehicle</p>
                 </div>
             </Link> 

@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { ChangePassword, Dashboard, ForgotPassword1, ForgotPassword2, SignIn, SignUp, Vehicles } from "./pages";
+import { ChangePassword, Dashboard, ForgotPassword1, ForgotPassword2, SignIn, SignUp, Vehicle, Vehicles } from "./pages";
 import MainLayout from "./layout/MainLayout";
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
       <Route path='/' element={<MainLayout />} >
         <Route path="/" element={<Dashboard />} />
         <Route path="/vehicles" element={<Vehicles />} />
+        <Route path="/vehicle" element={<Vehicle />} />
       </Route>
       <Route path='/sign-in' element={<SignIn />} />
       <Route path='/sign-up' element={<SignUp />} />
